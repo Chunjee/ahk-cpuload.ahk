@@ -4,7 +4,6 @@ Class CPULoad
 		this.PIT
 		this.PKT
 		this.PUT
-
         this.Get()
 	}
 
@@ -15,12 +14,12 @@ Class CPULoad
 		, IdleTime := this.PIT - CIT,    KernelTime := this.PKT - CKT,    UserTime := this.PUT - CUT
 		, SystemTime := KernelTime + UserTime 
 
-        ReturnValue := ( ( SystemTime - IdleTime ) * 100 ) // SystemTime,    this.PIT := CIT,    this.PKT := CKT,    this.PUT := CUT
-              
-        if (ReturnValue >= 0 && ReturnValue < 100) {
-            return ReturnValue
-        } else {
-            return 100 ;typically returned on 1st call
-        }
+		ReturnValue := ( ( SystemTime - IdleTime ) * 100 ) // SystemTime,    this.PIT := CIT,    this.PKT := CKT,    this.PUT := CUT
+
+		if (ReturnValue >= 0 && ReturnValue < 100) {
+		    return ReturnValue
+		} else {
+		    return 100 ;typically returned on 1st call
+		}
 	}
 }
